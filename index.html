@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHANTOM CHILLER | Roblox Items, Top Up, Gamepass & Joki Marketplace</title>
+    
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            /* Black & Red Neon Gaming Theme Colors */
+            --bg-main: #080808;
+            --bg-secondary: #111111;
+            --bg-card: #151515;
+            --bg-hover: #1D1D1D;
+            --accent-red: #E50914;
+            --accent-neon: #FF1E2D;
+            --accent-glow: rgba(255, 0, 30, 0.35);
+            --text-main: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --border-color: #292929;
+            --border-glow: rgba(255, 30, 45, 0.5);
+            --shadow-neon: 0 0 20px rgba(229, 9, 20, 0.25);
+            --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 85% 60%, rgba(255, 30, 45, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222222;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-red);
+            box-shadow: 0 0 10px var(--accent-neon);
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar-custom {
+            background-color: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .brand-logo {
+            font-weight: 900;
+            font-size: 1.35rem;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .brand-logo i {
+            color: var(--accent-neon);
+            filter: drop-shadow(0 0 8px var(--accent-glow));
+            transition: transform 0.3s ease;
+        }
+
+        .brand-logo:hover i {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            padding: 0.5rem 0.9rem !important;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-neon) !important;
+            background-color: rgba(229, 9, 20, 0.15);
+            text-shadow: 0 0 8px rgba(255, 30, 45, 0.6);
+        }
+
+        .search-box-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .search-input {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding-left: 2.5rem;
+            border-radius: 10px;
+            font-size: 0.88rem;
+            transition: all 0.25s ease;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-input:focus {
+            background-color: #1A1A1A;
+            border-color: var(--accent-neon);
+            color: var(--text-main);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.85rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* Product Card Neon Redesign */
+        .card-custom {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .card-custom:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-neon);
+            box-shadow: 0 8px 25px rgba(229, 9, 20, 0.3);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            background-color: #0D0D0D;
+        }
+
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .card-custom:hover .card-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            letter-spacing: 0.5px;
+        }
+
+        .badge-terlaris { background-color: var(--accent-red); color: #FFF; box-shadow: 0 0 10px rgba(229, 9, 20, 0.5); }
+        .badge-baru { background-color: #2563EB; color: #FFF; }
+        .badge-promo { background-color: #16A34A; color: #FFF; }
+        .badge-stokterbatas { background-color: #D97706; color: #FFF; }
+        .badge-jokicepat { background-color: #7C3AED; color: #FFF; }
+
+        /* Buttons & Interactions */
+        .btn-phantom {
+            background-color: var(--accent-red);
+            color: #FFFFFF;
+            font-weight: 700;
+            border: 1px solid var(--accent-neon);
+            border-radius: 10px;
+            padding: 0.55rem 1.2rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(229, 9, 20, 0.3);
+        }
+
+        .btn-phantom:hover {
+            background-color: var(--accent-neon);
+            color: #FFFFFF;
+            box-shadow: 0 0 16px var(--accent-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-phantom-outline {
+            background-color: var(--bg-secondary);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-phantom-outline:hover {
+            background-color: var(--bg-hover);
+            border-color: var(--accent-neon);
+            color: var(--accent-neon);
+            box-shadow: 0 0 10px rgba(255, 30, 45, 0.2);
+        }
+
+        .btn-whatsapp {
+            background-color: #16A34A;
+            color: #FFFFFF;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #22C55E;
+            color: #FFFFFF;
+            box-shadow: 0 0 14px rgba(34, 197, 94, 0.4);
+        }
+
+        /* Hero Banner Redesign */
+        .hero-banner {
+            background: linear-gradient(135deg, rgba(17, 17, 17, 0.92) 0%, rgba(8, 8, 8, 0.96) 100%), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
+            border: 1px solid var(--border-color);
+            border-radius: 22px;
+            padding: 3.5rem 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(229, 9, 20, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* Categories & Sidebar */
+        .category-pill {
+            background-color: var(--bg-secondary);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            padding: 0.5rem 1.3rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .category-pill:hover, .category-pill.active {
+            background-color: var(--accent-red);
+            color: #FFFFFF;
+            border-color: var(--accent-neon);
+            box-shadow: 0 0 14px var(--accent-glow);
+        }
+
+        .filter-sidebar {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.25rem;
+            box-shadow: var(--shadow-card);
+        }
+
+        .form-check-input {
+            background-color: #1A1A1A;
+            border-color: var(--border-color);
+        }
+
+        .form-check-input:checked {
+            background-color: var(--accent-red);
+            border-color: var(--accent-neon);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        /* Modals & Inputs Dark Mode */
+        .modal-content {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 30px rgba(0,0,0,0.9);
+        }
+
+        .modal-header, .modal-footer {
+            border-color: var(--border-color) !important;
+        }
+
+        .form-control, .form-select {
+            background-color: #1A1A1A !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-main) !important;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-neon) !important;
+            box-shadow: 0 0 10px var(--accent-glow) !important;
+        }
+
+        .form-control::placeholder {
+            color: var(--text-muted) !important;
+        }
+
+        .custom-toast {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--accent-red);
+            color: var(--text-main);
+            box-shadow: 0 0 20px var(--accent-glow);
+            border-radius: 14px;
+        }
+
+        .joki-calc-card {
+            background-color: #0E0E0E;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        /* Auth Nav Tabs */
+        .auth-nav .nav-link {
+            color: var(--text-muted) !important;
+            border: none;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            font-weight: 600;
+        }
+
+        .auth-nav .nav-link.active {
+            color: var(--accent-neon) !important;
+            background-color: transparent !important;
+            border-bottom: 2px solid var(--accent-neon);
+            text-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        footer {
+            background-color: #050505;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .extra-small {
+            font-size: 0.75rem;
+        }
+
+        .bg-card {
+            background-color: var(--bg-card) !important;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top py-2">
+        <div class="container">
+            <a class="brand-logo me-3" href="#" onclick="navigateTo('home'); return false;">
+                <i class="bi bi-ghost fs-3"></i> PHANTOM CHILLER
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarMain">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" id="nav-home" href="#" onclick="navigateTo('home'); return false;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" id="nav-products" href="#" onclick="navigateTo('products'); return false;">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" id="nav-joki" href="#" onclick="navigateTo('joki'); return false;"><i class="bi bi-controller text-danger me-1"></i> Layanan Joki</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="filterByGameNav('Blox Fruits'); return false;">Blox Fruits</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#trackOrderModal"><i class="bi bi-search me-1"></i> Cek Order Joki</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2">
+                    <div class="search-box-wrap d-none d-md-block">
+                        <i class="bi bi-search search-icon"></i>
+                        <input type="text" id="global-search" class="form-control search-input" placeholder="Cari item, game, joki..." oninput="handleGlobalSearch(this.value)">
+                    </div>
+
+                    <button class="btn btn-phantom-outline position-relative px-3" onclick="navigateTo('cart')" title="Keranjang Belanja">
+                        <i class="bi bi-cart3"></i>
+                        <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+                    </button>
+
+                    <!-- User Auth Button Container -->
+                    <div id="auth-btn-container">
+                        <button class="btn btn-phantom" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="bi bi-box-arrow-in-right me-1"></i> Masuk
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main dynamic application container -->
+    <main class="container my-4 flex-grow-1" id="main-content">
+        <!-- Content injected dynamically via JavaScript -->
+    </main>
+
+    <footer class="py-5 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a class="brand-logo mb-3" href="#">
+                        <i class="bi bi-ghost"></i> PHANTOM CHILLER
+                    </a>
+                    <p class="text-secondary small me-lg-4">
+                        Marketplace penyedia item Roblox, Gamepass, Top Up Robux, dan Jasa Joki profesional terpercaya, garansi amanah & anti-ban 100% di Indonesia.
+                    </p>
+                    <div class="d-flex gap-3 text-secondary">
+                        <a href="https://discord.gg" target="_blank" class="text-secondary fs-5"><i class="bi bi-discord"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="text-secondary fs-5"><i class="bi bi-tiktok"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="text-secondary fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="text-secondary fs-5"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3 text-light">Navigasi</h6>
+                    <ul class="list-unstyled text-secondary small d-flex flex-column gap-2">
+                        <li><a href="#" class="text-decoration-none text-secondary" onclick="navigateTo('home'); return false;">Home</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" onclick="navigateTo('products'); return false;">Semua Produk</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" onclick="navigateTo('joki'); return false;">Layanan Joki</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" onclick="navigateTo('cart'); return false;">Keranjang Saya</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3 text-light">Layanan Joki</h6>
+                    <ul class="list-unstyled text-secondary small d-flex flex-column gap-2">
+                        <li><a href="#" class="text-decoration-none text-secondary" onclick="filterByGameNav('Blox Fruits'); return false;">Joki Blox Fruits (Level/Raid)</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" onclick="filterByGameNav('Fisch'); return false;">Joki Fisch (Coins/Money)</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" onclick="filterByGameNav('Blade Ball'); return false;">Joki Blade Ball Wins</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary" onclick="directChatAdmin()">Request Joki Custom</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold mb-3 text-light">Metode Pembayaran</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-dark text-light border border-secondary p-2 fw-semibold">QRIS</span>
+                        <span class="badge bg-dark text-light border border-secondary p-2 fw-semibold">DANA</span>
+                        <span class="badge bg-dark text-light border border-secondary p-2 fw-semibold">GoPay</span>
+                        <span class="badge bg-dark text-light border border-secondary p-2 fw-semibold">OVO</span>
+                        <span class="badge bg-dark text-light border border-secondary p-2 fw-semibold">BCA</span>
+                        <span class="badge bg-dark text-light border border-secondary p-2 fw-semibold">Mandiri</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: var(--border-color);">
+            <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center text-secondary small gap-2">
+                <div>&copy; 2026 PHANTOM CHILLER. All rights reserved.</div>
+                <div>Designed for Roblox Gamers & Joki Seekers</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Cek Status Order / Joki -->
+    <div class="modal fade" id="trackOrderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+                <div class="modal-header border-bottom">
+                    <h5 class="modal-title fw-bold text-light"><i class="bi bi-search text-danger me-2"></i>Lacak Order / Status Joki</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form onsubmit="event.preventDefault(); trackJokiStatus();">
+                        <div class="mb-3">
+                            <label class="form-label text-muted small fw-semibold">Kode Pesanan (Contoh: PC-839201)</label>
+                            <input type="text" id="track-order-id" class="form-control" required placeholder="Masukkan ID Pesanan">
+                        </div>
+                        <button type="submit" class="btn btn-phantom w-100 py-2">Cek Status Pesanan</button>
+                    </form>
+                    <div id="track-result" class="mt-4" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Combined Login & Register -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+                <div class="modal-header border-bottom p-3">
+                    <ul class="nav nav-pills nav-justified w-100 auth-nav" id="authTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active py-2 fs-6" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-panel" type="button" role="tab">
+                                <i class="bi bi-box-arrow-in-right me-1"></i> Login
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link py-2 fs-6" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-panel" type="button" role="tab">
+                                <i class="bi bi-person-plus me-1"></i> Register
+                            </button>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn-close btn-close-white ms-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="tab-content" id="authTabContent">
+                        <!-- Panel Login -->
+                        <div class="tab-pane fade show active" id="login-panel" role="tabpanel">
+                            <form onsubmit="handleLoginSubmit(event)">
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Username Roblox / Email</label>
+                                    <input type="text" id="login-username" class="form-control" required placeholder="Masukkan username">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Password</label>
+                                    <input type="password" class="form-control" required placeholder="••••••••">
+                                </div>
+                                <button type="submit" class="btn btn-phantom w-100 py-2 mt-2">Masuk Akun</button>
+                            </form>
+                        </div>
+                        
+                        <!-- Panel Register -->
+                        <div class="tab-pane fade" id="register-panel" role="tabpanel">
+                            <form onsubmit="handleRegisterSubmit(event)">
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Nama Lengkap</label>
+                                    <input type="text" class="form-control" required placeholder="Masukkan nama Anda">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Username Roblox / Email</label>
+                                    <input type="text" id="reg-username" class="form-control" required placeholder="Username akun Anda">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Nomor WhatsApp</label>
+                                    <input type="tel" class="form-control" required placeholder="08xxxxxxxxxx">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Password Baru</label>
+                                    <input type="password" class="form-control" required placeholder="••••••••">
+                                </div>
+                                <button type="submit" class="btn btn-phantom w-100 py-2 mt-2">Daftar Akun Baru</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Success Checkout -->
+    <div class="modal fade" id="orderSuccessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg text-center p-4" style="border-radius: 16px;">
+                <div class="modal-body p-0">
+                    <i class="bi bi-check-circle-fill text-success display-1 mb-3"></i>
+                    <h4 class="fw-bold text-light mb-2">Pesanan Berhasil Dibuat!</h4>
+                    <p class="text-secondary small mb-4">Terima kasih telah berbelanja di PHANTOM CHILLER.</p>
+                    
+                    <div class="bg-dark border rounded-3 p-3 mb-4 text-start">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted small">Kode Pesanan:</span>
+                            <span class="fw-bold text-danger" id="success-order-id">PC-000000</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted small">Metode Bayar:</span>
+                            <span class="fw-bold text-light" id="success-payment">QRIS</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted small">Total Tagihan:</span>
+                            <span class="fw-bold text-success" id="success-total">Rp0</span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-column gap-2">
+                        <button id="btn-confirm-wa" class="btn btn-whatsapp w-100 py-2.5 fw-bold" onclick="sendWAConfirmation()">
+                            <i class="bi bi-whatsapp me-2"></i>Konfirmasi via WhatsApp Admin
+                        </button>
+                        <button class="btn btn-phantom-outline w-100 py-2" data-bs-dismiss="modal" onclick="navigateTo('home')">Kembali ke Beranda</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="cartToast" class="toast custom-toast border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex align-items-center p-3">
+                <i class="bi bi-cart-check-fill fs-4 text-danger me-3"></i>
+                <div class="toast-body p-0 fw-semibold text-light" id="toast-message">
+                    Produk berhasil ditambahkan ke keranjang!
+                </div>
+                <button type="button" class="btn-close btn-close-white ms-auto me-1" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const ADMIN_WA = "6287712487710"; // Nomor WhatsApp Admin Store
+
+        // DAFTAR PRODUK (30 Item Manual Per Kategori)
+        const PRODUCTS_DATA = [
+            // --- BLOX FRUITS (30 Items) ---
+            { id: 101, name: "Dark Blade (Gamepass)", game: "Blox Fruits", category: "Gamepass", price: 125000, rating: 4.9, sold: 142, badge: "TERLARIS", image: "assets/hahahafwad.webp", description: "Gamepass Dark Blade Blox Fruits permanen. Pengiriman via Gift." },
+            { id: 102, name: "Kitsune Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 145000, rating: 5.0, sold: 210, badge: "STOK TERBATAS", image: "https://i.pinimg.com/1200x/f7/2a/c7/f72ac73a7224b3242681d261397b255a.jpg", description: "Physical Kitsune Fruit Blox Fruits. Kirim via Sea 2/3 Trade." },
+            { id: 103, name: "Lightning Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 20000, rating: 4.8, sold: 98, badge: "PROMO", image: "assets/LightningUnleashed.webp", description: "Physical Lightning Fruit Blox Fruits. Siap kirim via Trade." },
+            { id: 104, name: "Joki Level 1 - 2550 (Max Level)", game: "Blox Fruits", category: "Joki", price: 45000, rating: 5.0, sold: 310, badge: "JOKI CEPAT", estimation: "1-2 Hari", image: "assets/BrokenShip.webp", description: "Joki leveling Blox Fruits aman 100% anti-ban. Bonus Beli & Frag.", isJoki: true },
+            { id: 105, name: "Joki Raid Fragment (10.000 Frag)", game: "Blox Fruits", category: "Joki", price: 15000, rating: 4.9, sold: 175, badge: "BARU", estimation: "2-4 Jam", image: "assets/MysteryMan.webp", description: "Joki Raid fragments cepat, bahan sudah disiapkan.", isJoki: true },
+            { id: 106, name: "Dough Fruit Awakened Full", game: "Blox Fruits", category: "Joki", price: 35000, rating: 5.0, sold: 130, badge: "TERLARIS", estimation: "1 Hari", image: "assets/StarvingNoobs.webp", description: "Joki full awakening Dough Fruit sampai V2 lengkap.", isJoki: true },
+            { id: 107, name: "Joki Mastery Style & Combat V2", game: "Blox Fruits", category: "Joki", price: 30000, rating: 4.9, sold: 88, badge: "JOKI CEPAT", estimation: "4-8 Jam", image: "assets/BrokenShip.webp", description: "Joki grinding mastery gaya bertarung dan pedang V2 hingga maks 600.", isJoki: true },
+            { id: 108, name: "VIP Private Server (1 Bulan)", game: "Blox Fruits", category: "Gamepass", price: 19000, rating: 4.8, sold: 89, badge: "PROMO", image: "assets/RipVSRed.webp", description: "Akses private server sepenuhnya selama sebulan full." },
+            { id: 109, name: "Dragon Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 160000, rating: 5.0, sold: 95, badge: "STOK TERBATAS", image: "assets/hahahafwad.webp", description: "Fruit Dragon Physical super mevvah untuk Sea 2 & 3." },
+            { id: 110, name: "Leopard Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 85000, rating: 4.9, sold: 115, badge: "PROMO", image: "assets/hahahafwad.webp", description: "Fruit Leopard Physical murah aman 100% via trade." },
+            { id: 111, name: "Fruit Notifier (Gamepass)", game: "Blox Fruits", category: "Gamepass", price: 320000, rating: 5.0, sold: 40, badge: "BARU", image: "assets/RipVSRed.webp", description: "Gamepass Notifier Fruit spawn instan di map." },
+            { id: 112, name: "2x Money (Gamepass)", game: "Blox Fruits", category: "Gamepass", price: 65000, rating: 4.9, sold: 205, badge: "TERLARIS", image: "assets/RipVSRed.webp", description: "Pengali uang Beli 2 kali lipat permanen." },
+            { id: 113, name: "2x Mastery (Gamepass)", game: "Blox Fruits", category: "Gamepass", price: 65000, rating: 4.9, sold: 190, badge: "TERLARIS", image: "assets/RipVSRed.webp", description: "Pengali leveling mastery senjata dan fruit 2 kali lipat." },
+            { id: 114, name: "Fast Boats (Gamepass)", game: "Blox Fruits", category: "Gamepass", price: 48000, rating: 4.7, sold: 88, badge: "PROMO", image: "assets/RipVSRed.webp", description: "Akses kapal cepat mewah melaju kencang di laut." },
+            { id: 115, name: "Joki Unlock Race V4 Max", game: "Blox Fruits", category: "Joki", price: 85000, rating: 5.0, sold: 70, badge: "JOKI CEPAT", estimation: "1-2 Hari", image: "assets/MysteryMan.webp", description: "Joki full awaken Race V4 semua jenis ras.", isJoki: true },
+            { id: 116, name: "Joki Cursed Dual Katana (CDK)", game: "Blox Fruits", category: "Joki", price: 50000, rating: 4.9, sold: 110, badge: "TERLARIS", estimation: "1 Hari", image: "assets/BrokenShip.webp", description: "Joki pengerjaan quest & unlock sword CDK.", isJoki: true },
+            { id: 117, name: "Joki True Triple Katana (TTK)", game: "Blox Fruits", category: "Joki", price: 60000, rating: 4.8, sold: 62, badge: "BARU", estimation: "1 Hari", image: "assets/BrokenShip.webp", description: "Joki berburu 3 pedang legend & gabung TTK.", isJoki: true },
+            { id: 118, name: "Joki Soul Guitar Unlock", game: "Blox Fruits", category: "Joki", price: 40000, rating: 4.9, sold: 94, badge: "PROMO", estimation: "5 Jam", image: "assets/StarvingNoobs.webp", description: "Joki quest puzzle & craft Soul Guitar.", isJoki: true },
+            { id: 119, name: "Joki Sea Beast Hunt (10M Beli)", game: "Blox Fruits", category: "Joki", price: 25000, rating: 4.8, sold: 80, badge: "PROMO", estimation: "3 Jam", image: "assets/BrokenShip.webp", description: "Joki berburu Sea Beast untuk uang Beli melimpah.", isJoki: true },
+            { id: 120, name: "T-Rex Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 55000, rating: 4.8, sold: 102, badge: "PROMO", image: "assets/hahahafwad.webp", description: "Fruit T-Rex Physical ready trade Sea 2 & 3." },
+            { id: 121, name: "Portal Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 25000, rating: 4.9, sold: 310, badge: "TERLARIS", image: "assets/hahahafwad.webp", description: "Fruit Portal Physical terbaik untuk PvP & berpindah tempat." },
+            { id: 122, name: "Buddha Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 25000, rating: 5.0, sold: 450, badge: "TERLARIS", image: "assets/hahahafwad.webp", description: "Fruit Buddha Physical paling mantap untuk leveling." },
+            { id: 123, name: "Blizzard Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 20000, rating: 4.7, sold: 75, badge: "BARU", image: "assets/hahahafwad.webp", description: "Fruit Blizzard Physical area damage super luas." },
+            { id: 124, name: "Spirit Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 40000, rating: 4.8, sold: 68, badge: "PROMO", image: "assets/hahahafwad.webp", description: "Fruit Spirit Physical unik dengan kombinasi skill elemen." },
+            { id: 125, name: "Venom Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 40000, rating: 4.8, sold: 89, badge: "PROMO", image: "assets/hahahafwad.webp", description: "Fruit Venom Physical racun mematikan untuk PvP." },
+            { id: 126, name: "Shadow Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 22000, rating: 4.6, sold: 54, badge: "PROMO", image: "assets/hahahafwad.webp", description: "Fruit Shadow Physical combo kegelapan mantap." },
+            { id: 127, name: "Mammoth Fruit (Physical)", game: "Blox Fruits", category: "Fruit", price: 45000, rating: 4.7, sold: 61, badge: "BARU", image: "assets/hahahafwad.webp", description: "Fruit Mammoth Physical pertahanan paling tebal." },
+            { id: 128, name: "Joki Godhuman Style Unlock", game: "Blox Fruits", category: "Joki", price: 55000, rating: 5.0, sold: 120, badge: "JOKI CEPAT", estimation: "1 Hari", image: "assets/MysteryMan.webp", description: "Joki mengumpulkan bahan dan unlock Godhuman.", isJoki: true },
+            { id: 129, name: "Joki Sanguine Art Unlock", game: "Blox Fruits", category: "Joki", price: 65000, rating: 4.9, sold: 85, badge: "JOKI CEPAT", estimation: "1 Hari", image: "assets/MysteryMan.webp", description: "Joki craft Sanguine Art dari Leviathan heart.", isJoki: true },
+            { id: 130, name: "Joki Leviathan Hunt & Heart", game: "Blox Fruits", category: "Joki", price: 75000, rating: 4.9, sold: 40, badge: "BARU", estimation: "1 Hari", image: "assets/BrokenShip.webp", description: "Joki tim berburu monster Leviathan sampai dapat Heart.", isJoki: true },
+
+            // --- FISCH (30 Items) ---
+            { id: 201, name: "Mythical Rod (Fisch)", game: "Fisch", category: "Item", price: 15000, rating: 4.7, sold: 64, badge: "STOK TERBATAS", image: "assets/images (1).jpg", description: "Pancingan Mythical Rod paling dicari di Fisch Roblox." },
+            { id: 202, name: "Joki Money Fisch (1.000.000 C$)", game: "Fisch", category: "Joki", price: 18000, rating: 4.9, sold: 112, badge: "PROMO", estimation: "3-6 Jam", image: "assets/images (2).jpg", description: "Joki farming coins Fisch cepat dan melimpah.", isJoki: true },
+            { id: 203, name: "Joki Rod Rodman & Coins 500k", game: "Fisch", category: "Joki", price: 22000, rating: 4.8, sold: 65, badge: "PROMO", estimation: "2-5 Jam", image: "assets/images (2).jpg", description: "Paket combo joki unlock rod pancing langka.", isJoki: true },
+            { id: 204, name: "Magma Rod (Fisch)", game: "Fisch", category: "Item", price: 25000, rating: 4.8, sold: 45, badge: "BARU", image: "assets/images (1).jpg", description: "Pancingan khusus area magma dengan ketahanan tinggi." },
+            { id: 205, name: "Fungal Rod (Fisch)", game: "Fisch", category: "Item", price: 20000, rating: 4.6, sold: 38, badge: "PROMO", image: "assets/images (1).jpg", description: "Pancingan ajaib mempercepat catch rate ikan." },
+            { id: 206, name: "Joki Leveling Fisch 1 - 50", game: "Fisch", category: "Joki", price: 30000, rating: 4.9, sold: 90, badge: "JOKI CEPAT", estimation: "5 Jam", image: "assets/images (2).jpg", description: "Joki naik level karakter Fisch kilat.", isJoki: true },
+            { id: 207, name: "Joki Money Fisch (5.000.000 C$)", game: "Fisch", category: "Joki", price: 70000, rating: 5.0, sold: 55, badge: "TERLARIS", estimation: "1 Hari", image: "assets/images (2).jpg", description: "Paket sultan koin Fisch 5 Juta C$.", isJoki: true },
+            { id: 208, name: "Destiny Rod (Fisch)", game: "Fisch", category: "Item", price: 35000, rating: 4.9, sold: 30, badge: "STOK TERBATAS", image: "assets/images (1).jpg", description: "Pancingan hoki tingkat tinggi dengan luck booster." },
+            { id: 209, name: "King's Rod (Fisch)", game: "Fisch", category: "Item", price: 40000, rating: 5.0, sold: 28, badge: "STOK TERBATAS", image: "assets/images (1).jpg", description: "Rod raja memancing ikan ukuran raksasa." },
+            { id: 210, name: "Sunken Rod (Fisch)", game: "Fisch", category: "Item", price: 45000, rating: 4.9, sold: 22, badge: "BARU", image: "assets/images (1).jpg", description: "Pancingan legendaris harta karun lautan." },
+            { id: 211, name: "Joki Catch Exotic Fish (10x)", game: "Fisch", category: "Joki", price: 25000, rating: 4.7, sold: 41, badge: "PROMO", estimation: "2 Jam", image: "assets/images (2).jpg", description: "Joki tangkap ikan langka kelas Exotic.", isJoki: true },
+            { id: 212, name: "Joki Catch Mythic Fish (5x)", game: "Fisch", category: "Joki", price: 35000, rating: 4.8, sold: 34, badge: "PROMO", estimation: "3 Jam", image: "assets/images (2).jpg", description: "Joki berburu ikan kelas Mythic.", isJoki: true },
+            { id: 213, name: "Joki Unlock All Fishing Spots", game: "Fisch", category: "Joki", price: 15000, rating: 4.8, sold: 60, badge: "JOKI CEPAT", estimation: "1 Jam", image: "assets/images (2).jpg", description: "Joki buka semua pulau & spot mancing.", isJoki: true },
+            { id: 214, name: "Carbon Rod (Fisch)", game: "Fisch", category: "Item", price: 12000, rating: 4.5, sold: 80, badge: "PROMO", image: "assets/images (1).jpg", description: "Pancingan starter kuat dan ringan." },
+            { id: 215, name: "Steady Rod (Fisch)", game: "Fisch", category: "Item", price: 10000, rating: 4.5, sold: 75, badge: "PROMO", image: "assets/images (1).jpg", description: "Pancingan stabil mudah dipakai menangkap ikan." },
+            { id: 216, name: "Fortune Rod (Fisch)", game: "Fisch", category: "Item", price: 28000, rating: 4.8, sold: 39, badge: "BARU", image: "assets/images (1).jpg", description: "Pancingan pembawa keberuntungan koin tinggi." },
+            { id: 217, name: "Nocturnal Rod (Fisch)", game: "Fisch", category: "Item", price: 30000, rating: 4.7, sold: 25, badge: "PROMO", image: "assets/images (1).jpg", description: "Khusus memancing ikan malam hari." },
+            { id: 218, name: "Joki Best Bait Farm (100x)", game: "Fisch", category: "Joki", price: 15000, rating: 4.6, sold: 48, badge: "PROMO", estimation: "1 Jam", image: "assets/images (2).jpg", description: "Farming umpan pancing kualitas terbaik.", isJoki: true },
+            { id: 219, name: "Joki Megalodon Hunt", game: "Fisch", category: "Joki", price: 50000, rating: 5.0, sold: 19, badge: "BARU", estimation: "4 Jam", image: "assets/images (2).jpg", description: "Joki memburu hiu purba Megalodon.", isJoki: true },
+            { id: 220, name: "Joki Kraken Hunt", game: "Fisch", category: "Joki", price: 60000, rating: 5.0, sold: 15, badge: "STOK TERBATAS", estimation: "5 Jam", image: "assets/images (2).jpg", description: "Joki menaklukkan monster gurita laut Kraken.", isJoki: true },
+            { id: 221, name: "Aurora Rod (Fisch)", game: "Fisch", category: "Item", price: 50000, rating: 5.0, sold: 12, badge: "STOK TERBATAS", image: "assets/images (1).jpg", description: "Rod berkilau efek cahaya Aurora indah." },
+            { id: 222, name: "Joki Leveling Fisch 50 - 100", game: "Fisch", category: "Joki", price: 50000, rating: 4.9, sold: 33, badge: "JOKI CEPAT", estimation: "1 Hari", image: "assets/images (2).jpg", description: "Lanjutan joki level tinggi di Fisch.", isJoki: true },
+            { id: 223, name: "Joki Best Bobbers Unlock", game: "Fisch", category: "Joki", price: 20000, rating: 4.7, sold: 29, badge: "PROMO", estimation: "2 Jam", image: "assets/images (2).jpg", description: "Membuka seluruh aksesoris pelampung pancing.", isJoki: true },
+            { id: 224, name: "Enchanted Rod (Fisch)", game: "Fisch", category: "Item", price: 32000, rating: 4.8, sold: 27, badge: "BARU", image: "assets/images (1).jpg", description: "Pancingan magis dengan daya tarik kuat." },
+            { id: 225, name: "Scurvy Rod (Fisch)", game: "Fisch", category: "Item", price: 18000, rating: 4.5, sold: 31, badge: "PROMO", image: "assets/images (1).jpg", description: "Pancingan bajak laut dengan desain keren." },
+            { id: 226, name: "Joki Money Fisch (10.000.000 C$)", game: "Fisch", category: "Joki", price: 130000, rating: 5.0, sold: 18, badge: "TERLARIS", estimation: "2 Hari", image: "assets/images (2).jpg", description: "Paket koin raksasa 10 Juta C$.", isJoki: true },
+            { id: 227, name: "Joki Fish Index Complete 100%", game: "Fisch", category: "Joki", price: 150000, rating: 5.0, sold: 10, badge: "STOK TERBATAS", estimation: "3 Hari", image: "assets/images (2).jpg", description: "Melengkapi buku koleksi seluruh ikan.", isJoki: true },
+            { id: 228, name: "Plastic Rod (Fisch)", game: "Fisch", category: "Item", price: 5000, rating: 4.0, sold: 100, badge: "PROMO", image: "assets/images (1).jpg", description: "Pancingan murah untuk pemula." },
+            { id: 229, name: "Training Rod (Fisch)", game: "Fisch", category: "Item", price: 8000, rating: 4.3, sold: 90, badge: "PROMO", image: "assets/images (1).jpg", description: "Pancingan latihan menambah exp memancing." },
+            { id: 230, name: "Joki Complete Atlantis Quest", game: "Fisch", category: "Joki", price: 40000, rating: 4.9, sold: 22, badge: "BARU", estimation: "4 Jam", image: "assets/images (2).jpg", description: "Joki pengerjaan quest kota tenggelam Atlantis.", isJoki: true },
+
+            // --- GROW A GARDEN (30 Items) ---
+            { id: 301, name: "Candy Blossom", game: "Grow a Garden", category: "Item", price: 12000, rating: 4.6, sold: 43, badge: "BARU", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Tanaman langka dengan harga jual fantastis." },
+            { id: 302, name: "100.000 Shackless", game: "Grow a Garden", category: "Currency", price: 15000, rating: 4.8, sold: 30, badge: "PROMO", estimation: "1 Jam", image: "assets/images (3).jpg", description: "Shackless mempercepat progres berkebun Anda." },
+            { id: 303, name: "Golden Sunflower Seed", game: "Grow a Garden", category: "Item", price: 8000, rating: 4.7, sold: 65, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Benih bunga matahari emas bernilai tinggi." },
+            { id: 304, name: "Rainbow Rose Petal", game: "Grow a Garden", category: "Item", price: 20000, rating: 4.9, sold: 50, badge: "STOK TERBATAS", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Bunga mawar pelangi super langka." },
+            { id: 305, name: "500.000 Shackless", game: "Grow a Garden", category: "Currency", price: 60000, rating: 5.0, sold: 25, badge: "TERLARIS", image: "assets/images (3).jpg", description: "Paket hemat currency Shackless berkebun." },
+            { id: 306, name: "Joki Auto Farm Garden (24 Jam)", game: "Grow a Garden", category: "Joki", price: 35000, rating: 4.9, sold: 40, badge: "JOKI CEPAT", estimation: "1 Hari", image: "assets/images (3).jpg", description: "Joki urus kebun penuh panen otomatis.", isJoki: true },
+            { id: 307, name: "Crystal Tree Seed", game: "Grow a Garden", category: "Item", price: 25000, rating: 4.8, sold: 18, badge: "BARU", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Pohon kristal bening buah mewah." },
+            { id: 308, name: "Ultra Sprinkler 3000", game: "Grow a Garden", category: "Item", price: 18000, rating: 4.7, sold: 32, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Alat penyiram tanaman otomatis area luas." },
+            { id: 309, name: "Magic Fertilizer Pack (50x)", game: "Grow a Garden", category: "Item", price: 10000, rating: 4.6, sold: 80, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Pupuk ajaib tanaman langsung tumbuh." },
+            { id: 310, name: "1.000.000 Shackless", game: "Grow a Garden", category: "Currency", price: 110000, rating: 5.0, sold: 15, badge: "TERLARIS", image: "assets/images (3).jpg", description: "Paket sultan koin Shackless 1 Juta." },
+            { id: 311, name: "Dragon Fruit Plant", game: "Grow a Garden", category: "Item", price: 15000, rating: 4.7, sold: 37, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Tanaman buah naga merah eksotis." },
+            { id: 312, name: "Moonlight Lily", game: "Grow a Garden", category: "Item", price: 22000, rating: 4.8, sold: 22, badge: "BARU", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Bunga lili mekar indah malam hari." },
+            { id: 313, name: "Joki Expand Plot Max Size", game: "Grow a Garden", category: "Joki", price: 40000, rating: 4.9, sold: 29, badge: "JOKI CEPAT", estimation: "5 Jam", image: "assets/images (3).jpg", description: "Joki perluas tanah kebun sampai ukuran maksimal.", isJoki: true },
+            { id: 314, name: "Giant Pumpkin Seed", game: "Grow a Garden", category: "Item", price: 12000, rating: 4.5, sold: 44, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Benih labu raksasa kontes." },
+            { id: 315, name: "Emerald Shroom", game: "Grow a Garden", category: "Item", price: 16000, rating: 4.6, sold: 28, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Jamur zamrud menyala langka." },
+            { id: 316, name: "Joki Unlock All Crop Seeds", game: "Grow a Garden", category: "Joki", price: 30000, rating: 4.8, sold: 31, badge: "BARU", estimation: "3 Jam", image: "assets/images (3).jpg", description: "Joki buka seluruh akses benih tanaman.", isJoki: true },
+            { id: 317, name: "Golden Scythe Tool", game: "Grow a Garden", category: "Item", price: 28000, rating: 4.9, sold: 19, badge: "STOK TERBATAS", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Arit emas pemotong panen cepat." },
+            { id: 318, name: "Speed Harvest Boots", game: "Grow a Garden", category: "Item", price: 20000, rating: 4.7, sold: 26, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Sepatu lari cepat saat memanen kebun." },
+            { id: 319, name: "250.000 Shackless", game: "Grow a Garden", category: "Currency", price: 32000, rating: 4.8, sold: 55, badge: "PROMO", image: "assets/images (3).jpg", description: "Nominal menengah Shackless kebun." },
+            { id: 320, name: "Starfruit Tree Seed", game: "Grow a Garden", category: "Item", price: 14000, rating: 4.6, sold: 39, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Benih pohon belimbing bintang berkilau." },
+            { id: 321, name: "Joki Garden Redesign Aesthetic", game: "Grow a Garden", category: "Joki", price: 50000, rating: 5.0, sold: 12, badge: "BARU", estimation: "6 Jam", image: "assets/images (3).jpg", description: "Dekorasi ulang tata letak kebun jadi indah.", isJoki: true },
+            { id: 322, name: "Watering Can V2 Emas", game: "Grow a Garden", category: "Item", price: 15000, rating: 4.6, sold: 41, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Tekor air emas tanpa perlu isi ulang." },
+            { id: 323, name: "Fire Pepper Seed", game: "Grow a Garden", category: "Item", price: 11000, rating: 4.5, sold: 33, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Cabai api dengan efek membakar." },
+            { id: 324, name: "Frosty Berry Bush", game: "Grow a Garden", category: "Item", price: 13000, rating: 4.6, sold: 36, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Semak beri es dingin." },
+            { id: 325, name: "Joki Level Garden Master 1-30", game: "Grow a Garden", category: "Joki", price: 45000, rating: 4.9, sold: 20, badge: "JOKI CEPAT", estimation: "1 Hari", image: "assets/images (3).jpg", description: "Naikkan level keahlian berkebun.", isJoki: true },
+            { id: 326, name: "Siren Flower", game: "Grow a Garden", category: "Item", price: 19000, rating: 4.7, sold: 17, badge: "BARU", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Bunga pemanggil cuaca hujan." },
+            { id: 327, name: "Auto Harvester Drone", game: "Grow a Garden", category: "Item", price: 35000, rating: 4.9, sold: 14, badge: "STOK TERBATAS", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Drone terbang memetik panen otomatis." },
+            { id: 328, name: "Rainbow Fertilizer (10x)", game: "Grow a Garden", category: "Item", price: 15000, rating: 4.8, sold: 45, badge: "PROMO", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Pupuk pelangi jaminan tanaman varian mutation." },
+            { id: 329, name: "Bonsai Ancient Tree", game: "Grow a Garden", category: "Item", price: 40000, rating: 5.0, sold: 11, badge: "STOK TERBATAS", image: "assets/grow-a-garden-candy-blossom-header.webp", description: "Pohon bonsai purba langka." },
+            { id: 330, name: "Joki Rebirth Garden (1x)", game: "Grow a Garden", category: "Joki", price: 30000, rating: 4.8, sold: 23, badge: "PROMO", estimation: "4 Jam", image: "assets/images (3).jpg", description: "Melakukan rebirth kebun untuk multiplier boost.", isJoki: true },
+
+            // --- BLADE BALL (30 Items) ---
+            { id: 401, name: "Blue Ninja Katana Set", game: "Blade Ball", category: "Item", price: 30000, rating: 4.9, sold: 180, badge: "STOK TERBATAS", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang langka Blade Ball dengan efek naga berkilau." },
+            { id: 402, name: "Joki Win Streak Blade Ball (50 Wins)", game: "Blade Ball", category: "Joki", price: 25000, rating: 4.9, sold: 45, badge: "JOKI CEPAT", estimation: "5-8 Jam", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Dongkrak statistik kemenangan Blade Ball.", isJoki: true },
+            { id: 403, name: "Joki Rank Up / Wins (100 Wins)", game: "Blade Ball", category: "Joki", price: 40000, rating: 4.8, sold: 72, badge: "JOKI CEPAT", estimation: "1 Hari", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Joki kenaikan rank & kemenangan di Blade Ball.", isJoki: true },
+            { id: 404, name: "Cyber Scythe Sword", game: "Blade Ball", category: "Item", price: 45000, rating: 5.0, sold: 60, badge: "TERLARIS", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Sabit futuristik neon biru kencang." },
+            { id: 405, name: "Dragon Shadow Blade", game: "Blade Ball", category: "Item", price: 50000, rating: 4.9, sold: 52, badge: "STOK TERBATAS", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang efek naga hitam membara." },
+            { id: 406, name: "Joki Unlock Skill Infinity", game: "Blade Ball", category: "Joki", price: 60000, rating: 5.0, sold: 38, badge: "BARU", estimation: "1 Hari", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Unlock kemampuan Infinity paling OP.", isJoki: true },
+            { id: 407, name: "Joki Unlock Skill Raptor", game: "Blade Ball", category: "Joki", price: 35000, rating: 4.8, sold: 49, badge: "PROMO", estimation: "4 Jam", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Unlock skill lari cepat Raptor.", isJoki: true },
+            { id: 408, name: "Dual Nebula Greatswords", game: "Blade Ball", category: "Item", price: 55000, rating: 4.9, sold: 33, badge: "BARU", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Sepasang pedang raksasa galaksi nebula." },
+            { id: 409, name: "Phoenix Flame Sword", game: "Blade Ball", category: "Item", price: 35000, rating: 4.7, sold: 41, badge: "PROMO", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang burung phoenix berapi-api." },
+            { id: 410, name: "Joki Spin Wheel Tokens (500x)", game: "Blade Ball", category: "Joki", price: 30000, rating: 4.8, sold: 58, badge: "PROMO", estimation: "3 Jam", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Farming token gacha wheel Blade Ball.", isJoki: true },
+            { id: 411, name: "Light Saber Green", game: "Blade Ball", category: "Item", price: 20000, rating: 4.6, sold: 70, badge: "PROMO", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang cahaya Jedi hijau menyala." },
+            { id: 412, name: "Dark Void Greatsword", game: "Blade Ball", category: "Item", price: 40000, rating: 4.8, sold: 29, badge: "BARU", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang lubang hitam efek ketiadaan." },
+            { id: 413, name: "Joki 200 Wins Speed Boost", game: "Blade Ball", category: "Joki", price: 75000, rating: 5.0, sold: 22, badge: "TERLARIS", estimation: "2 Hari", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Joki kemenangan 200 kali super cepat.", isJoki: true },
+            { id: 414, name: "Lightning Dagger Pair", game: "Blade Ball", category: "Item", price: 25000, rating: 4.7, sold: 50, badge: "PROMO", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pisau belati petir kilat cepat." },
+            { id: 415, name: "Angel Wings Sword", game: "Blade Ball", category: "Item", price: 38000, rating: 4.8, sold: 35, badge: "BARU", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang sayap malaikat putih mulia." },
+            { id: 416, name: "Joki Unlock Skill Telekinesis", game: "Blade Ball", category: "Joki", price: 30000, rating: 4.7, sold: 40, badge: "PROMO", estimation: "3 Jam", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Buka skill mengendalikan bola dari jauh.", isJoki: true },
+            { id: 417, name: "Demon Horn Blade", game: "Blade Ball", category: "Item", price: 28000, rating: 4.6, sold: 44, badge: "PROMO", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang tanduk iblis merah membara." },
+            { id: 418, name: "Ice Crystal Katana", game: "Blade Ball", category: "Item", price: 27000, rating: 4.7, sold: 37, badge: "PROMO", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Katana es membeku keren." },
+            { id: 419, name: "Joki Battlepass Level Max", game: "Blade Ball", category: "Joki", price: 50000, rating: 4.9, sold: 30, badge: "JOKI CEPAT", estimation: "1 Hari", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Ratakan level battlepass Blade Ball.", isJoki: true },
+            { id: 420, name: "Golden Royalty Rapier", game: "Blade Ball", category: "Item", price: 32000, rating: 4.8, sold: 28, badge: "BARU", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang anggar emas kerajaan." },
+            { id: 421, name: "Sakura Blossom Blade", game: "Blade Ball", category: "Item", price: 22000, rating: 4.6, sold: 48, badge: "PROMO", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang guguran kelopak bunga sakura." },
+            { id: 422, name: "Joki Unlock Skill Forcefield", game: "Blade Ball", category: "Joki", price: 28000, rating: 4.8, sold: 36, badge: "PROMO", estimation: "2 Jam", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Buka pelindung cangkang anti tampar.", isJoki: true },
+            { id: 423, name: "Toxic Slime Scythe", game: "Blade Ball", category: "Item", price: 24000, rating: 4.5, sold: 31, badge: "PROMO", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Sabit racun hijau asam beracun." },
+            { id: 424, name: "Vampire Fangs Dagger", game: "Blade Ball", category: "Item", price: 26000, rating: 4.6, sold: 29, badge: "PROMO", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Belati taring vampir penyerap darah." },
+            { id: 425, name: "Joki Clan Level & Coins", game: "Blade Ball", category: "Joki", price: 40000, rating: 4.8, sold: 21, badge: "BARU", estimation: "5 Jam", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Sumbang kontribusi koin klan.", isJoki: true },
+            { id: 426, name: "Celestial Sun Sword", game: "Blade Ball", category: "Item", price: 48000, rating: 4.9, sold: 18, badge: "STOK TERBATAS", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang matahari terbit keemasan." },
+            { id: 427, name: "Reaper Grim Scythe", game: "Blade Ball", category: "Item", price: 42000, rating: 4.8, sold: 25, badge: "PROMO", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Sabit pencabut nyawa hitam pekat." },
+            { id: 428, name: "Joki Daily Quest Clear (7 Hari)", game: "Blade Ball", category: "Joki", price: 35000, rating: 4.9, sold: 42, badge: "PROMO", estimation: "7 Hari", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Joki selesaikan misi harian seminggu.", isJoki: true },
+            { id: 429, name: "Galactic Dual Sabers", game: "Blade Ball", category: "Item", price: 52000, rating: 5.0, sold: 16, badge: "BARU", image: "https://imgop.itemku.com/?url=https%3A%2F%2Fd1x91p7vw3vuq8.cloudfront.net%2Fitemku-upload%2F2025312%2Fdoab5m3lytb2mxevyazwow.jpg&w=1033&q=75", description: "Pedang kembar antariksa." },
+            { id: 430, name: "Joki Master Parry Achievement", game: "Blade Ball", category: "Joki", price: 30000, rating: 4.8, sold: 33, badge: "PROMO", estimation: "2 Jam", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwUaBqwF88KhYs7114lBeMUfHgbeiUuoCbzutayIFTw&s=10", description: "Joki dapatkan gelar jago parry.", isJoki: true },
+
+            // --- MM2 / MURDER MYSTERY 2 (30 Items) ---
+            { id: 501, name: "Corrupt Godly Set", game: "MM2", category: "Item", price: 40000, rating: 5.0, sold: 220, badge: "TERLARIS", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Senjata Godly Paling Keren di Murder Mystery 2." },
+            { id: 502, name: "Harvester Ancient (MM2)", game: "MM2", category: "Item", price: 65000, rating: 4.9, sold: 52, badge: "BARU", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Senjata Harvester Ancient Murder Mystery 2 langka." },
+            { id: 503, name: "Icebreaker Godly Gun", game: "MM2", category: "Item", price: 35000, rating: 4.8, sold: 95, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pistol es Godly mematikan." },
+            { id: 504, name: "Icewing Godly Knife", game: "MM2", category: "Item", price: 15000, rating: 4.7, sold: 310, badge: "TERLARIS", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pisau es sayap naga murah meriah." },
+            { id: 505, name: "Bat Dragon Ancient", game: "MM2", category: "Item", price: 70000, rating: 5.0, sold: 40, badge: "STOK TERBATAS", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Senjata Ancient pemukul kelelawar." },
+            { id: 506, name: "Chroma Candleflame", game: "MM2", category: "Item", price: 80000, rating: 5.0, sold: 28, badge: "STOK TERBATAS", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Chroma lilin warna pelangi berubah-ubah." },
+            { id: 507, name: "Joki Leveling MM2 1 - 100", game: "MM2", category: "Joki", price: 30000, rating: 4.8, sold: 85, badge: "JOKI CEPAT", estimation: "5 Jam", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Joki naik level prestise MM2.", isJoki: true },
+            { id: 508, name: "Elderwood Revolver & Scythe", game: "MM2", category: "Item", price: 45000, rating: 4.9, sold: 70, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Set kayu purba pistol dan sabit." },
+            { id: 509, name: "Darksword Ancient", game: "MM2", category: "Item", price: 60000, rating: 4.9, sold: 45, badge: "BARU", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pedang kegelapan Ancient MM2." },
+            { id: 510, name: "Ocean & Waves Set", game: "MM2", category: "Item", price: 50000, rating: 4.8, sold: 39, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Set tema lautan biru samudra." },
+            { id: 511, name: "Joki Coins MM2 (50.000 Coins)", game: "MM2", category: "Joki", price: 25000, rating: 4.8, sold: 90, badge: "PROMO", estimation: "3 Jam", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Farming koin MM2 untuk gacha box.", isJoki: true },
+            { id: 512, name: "Chroma Lightbringer", game: "MM2", category: "Item", price: 55000, rating: 4.9, sold: 61, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pistol cahaya Chroma berkilau." },
+            { id: 513, name: "Chroma Darkbringer", game: "MM2", category: "Item", price: 55000, rating: 4.9, sold: 58, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pistol ketiadaan Chroma hitam pelangi." },
+            { id: 514, name: "Sugar & Candy Set", game: "MM2", category: "Item", price: 42000, rating: 4.8, sold: 77, badge: "TERLARIS", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Set permen natal manis Godly." },
+            { id: 515, name: "Chroma Gemstone Knife", game: "MM2", category: "Item", price: 35000, rating: 4.7, sold: 64, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pisau batu permata berkilauan." },
+            { id: 516, name: "Joki Prestige Reset (Prestige 10)", game: "MM2", category: "Joki", price: 80000, rating: 5.0, sold: 20, badge: "JOKI CEPAT", estimation: "2 Hari", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Joki sampai level Prestige 10 emas.", isJoki: true },
+            { id: 517, name: "Lugercane Godly Gun", game: "MM2", category: "Item", price: 20000, rating: 4.6, sold: 88, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pistol tongkat permen Luger." },
+            { id: 518, name: "Red Seer Godly Knife", game: "MM2", category: "Item", price: 12000, rating: 4.5, sold: 105, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pisau mata merah menyala." },
+            { id: 519, name: "Chroma Fang Knife", game: "MM2", category: "Item", price: 32000, rating: 4.7, sold: 43, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pisau taring Chroma pelangi." },
+            { id: 520, name: "Chroma Slasher Knife", game: "MM2", category: "Item", price: 34000, rating: 4.7, sold: 40, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pisau pemotong Chroma tebas." },
+            { id: 521, name: "Ghostblade Godly", game: "MM2", category: "Item", price: 14000, rating: 4.6, sold: 92, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pedang hantu Halloween." },
+            { id: 522, name: "Hallowscythe & Hallowgun", game: "MM2", category: "Item", price: 38000, rating: 4.8, sold: 50, badge: "BARU", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Set sabit dan pistol labu Hallow." },
+            { id: 523, name: "Pixel Godly Knife", game: "MM2", category: "Item", price: 22000, rating: 4.6, sold: 73, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pisau bergaya kotak-kotak 8-bit." },
+            { id: 524, name: "Clockwork Godly Knife", game: "MM2", category: "Item", price: 20000, rating: 4.6, sold: 68, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pisau roda gigi jam kuno." },
+            { id: 525, name: "Joki Battlepass Halloween Full", game: "MM2", category: "Joki", price: 45000, rating: 4.9, sold: 35, badge: "JOKI CEPAT", estimation: "1 Hari", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Ratakan event pass MM2.", isJoki: true },
+            { id: 526, name: "Nebula Godly Knife", game: "MM2", category: "Item", price: 18000, rating: 4.6, sold: 55, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pisau ungu bernuansa bintang galaksi." },
+            { id: 527, name: "Prismatic Godly Knife", game: "MM2", category: "Item", price: 10000, rating: 4.4, sold: 120, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Pisau prisma murah meriah." },
+            { id: 528, name: "Amerikatan & Oldperson Set", game: "MM2", category: "Item", price: 25000, rating: 4.7, sold: 46, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Set pisau & pistol vintage klasik." },
+            { id: 529, name: "Battleaxe II Godly", game: "MM2", category: "Item", price: 18000, rating: 4.6, sold: 52, badge: "PROMO", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Kapak perang perak pemotong mematikan." },
+            { id: 530, name: "Joki Murderer Win Streak (50 Wins)", game: "MM2", category: "Joki", price: 30000, rating: 4.8, sold: 41, badge: "PROMO", estimation: "4 Jam", image: "https://i.ebayimg.com/images/g/~I4AAOSwestnebI4/s-l400.jpg", description: "Joki menang terus sebagai Murderer.", isJoki: true },
+
+            // --- ROBLOX TOP UP & GENERAL (30 Items) ---
+            { id: 601, name: "1,000 Robux Instant Transfer", game: "Roblox", category: "Currency", price: 110000, rating: 5.0, sold: 540, badge: "TERLARIS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Top up Robux via Gamepass / Group Funds legal." },
+            { id: 602, name: "2,000 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 215000, rating: 5.0, sold: 310, badge: "TERLARIS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Top up 2000 Robux amanah & garansi 100%." },
+            { id: 603, name: "500 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 58000, rating: 4.9, sold: 420, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Paket ekonomis 500 Robux kilat." },
+            { id: 604, name: "100 Robux Mini Pack", game: "Roblox", category: "Currency", price: 13000, rating: 4.8, sold: 600, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Robux receh hemat untuk aksesoris avatar." },
+            { id: 605, name: "5,000 Robux Big Pack", game: "Roblox", category: "Currency", price: 520000, rating: 5.0, sold: 110, badge: "STOK TERBATAS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Paket sultan 5.000 Robux harga miring." },
+            { id: 606, name: "10,000 Robux Mega Pack", game: "Roblox", category: "Currency", price: 1020000, rating: 5.0, sold: 45, badge: "STOK TERBATAS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Sultan Roblox Robux 10 Juta kilat." },
+            { id: 607, name: "Roblox Premium 1 Bulan (450 Robux)", game: "Roblox", category: "Gamepass", price: 75000, rating: 4.9, sold: 180, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Langganan Roblox Premium 450 Robux." },
+            { id: 608, name: "Roblox Premium 1 Bulan (1000 Robux)", game: "Roblox", category: "Gamepass", price: 140000, rating: 5.0, sold: 90, badge: "TERLARIS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Langganan Roblox Premium 1000 Robux harian." },
+            { id: 609, name: "Roblox Gift Card $10 (1000 Robux)", game: "Roblox", category: "Currency", price: 160000, rating: 4.9, sold: 75, badge: "BARU", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Kode Gift Card Roblox resmi nominal $10." },
+            { id: 610, name: "Roblox Gift Card $25 (2700 Robux)", game: "Roblox", category: "Currency", price: 390000, rating: 5.0, sold: 40, badge: "BARU", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Kode Gift Card Roblox resmi nominal $25." },
+            { id: 611, name: "250 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 30000, rating: 4.8, sold: 310, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Robux nominal sedang kirim kilat." },
+            { id: 612, name: "800 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 90000, rating: 4.9, sold: 210, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "800 Robux pas buat beli gamepass impian." },
+            { id: 613, name: "1,500 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 165000, rating: 4.9, sold: 140, badge: "TERLARIS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "1500 Robux pengerjaan instan." },
+            { id: 614, name: "3,000 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 320000, rating: 5.0, sold: 88, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "3000 Robux murah bergaransi 100%." },
+            { id: 615, name: "4,000 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 420000, rating: 5.0, sold: 65, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "4000 Robux legal aman anti rubah." },
+            { id: 616, name: "Roblox Gift Card $50 (5700 Robux)", game: "Roblox", category: "Currency", price: 770000, rating: 5.0, sold: 25, badge: "BARU", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Kode voucher Gift Card fisik/digital $50." },
+            { id: 617, name: "Joki Unban Appeal Account Assistance", game: "Roblox", category: "Joki", price: 50000, rating: 4.7, sold: 35, badge: "BARU", estimation: "1 Hari", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Jasa bantuan surat banding unban akun.", isJoki: true },
+            { id: 618, name: "Roblox Group Creation with 100 Members", game: "Roblox", category: "Item", price: 40000, rating: 4.8, sold: 42, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Grup Roblox siap pakai beserta member." },
+            { id: 619, name: "Custom Roblox Avatar Outfit Design", game: "Roblox", category: "Item", price: 25000, rating: 4.9, sold: 60, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Desain baju & celana avatar sesuai selera." },
+            { id: 620, name: "Akun Roblox Polosan Age 2018-2020", game: "Roblox", category: "Item", price: 30000, rating: 4.8, sold: 80, badge: "TERLARIS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Akun tua Roblox langka polosan." },
+            { id: 621, name: "Akun Roblox Verified Email & Phone", game: "Roblox", category: "Item", price: 15000, rating: 4.7, sold: 110, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Akun aman siap pakai verifikasi lengkap." },
+            { id: 622, name: "Joki Verifikasi ID Umur 13+ Roblox", game: "Roblox", category: "Joki", price: 20000, rating: 4.9, sold: 95, badge: "JOKI CEPAT", estimation: "1 Jam", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Bantu verifikasi umur akun unlock Voice Chat.", isJoki: true },
+            { id: 623, name: "150 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 20000, rating: 4.7, sold: 190, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Nominal hemat Robux transfer cepat." },
+            { id: 624, name: "350 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 42000, rating: 4.8, sold: 150, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Nominal pas buat beli aksesoris distro." },
+            { id: 625, name: "700 Robux Fast Transfer", game: "Roblox", category: "Currency", price: 80000, rating: 4.9, sold: 120, badge: "PROMO", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Top up 700 Robux legal garansi 100%." },
+            { id: 626, name: "Roblox Premium 1 Bulan (2200 Robux)", game: "Roblox", category: "Gamepass", price: 290000, rating: 5.0, sold: 35, badge: "STOK TERBATAS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Langganan Premium Roblox 2200 Robux bulanan." },
+            { id: 627, name: "15,000 Robux Ultra Pack", game: "Roblox", category: "Currency", price: 1500000, rating: 5.0, sold: 12, badge: "STOK TERBATAS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Paket raksasa 15.000 Robux untuk developer & sultan." },
+            { id: 628, name: "20,000 Robux Ultimate Pack", game: "Roblox", category: "Currency", price: 1950000, rating: 5.0, sold: 8, badge: "STOK TERBATAS", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Paket kasta tertinggi Robux transaksi resmi." },
+            { id: 629, name: "Joki Secure Account 2FA Setup", game: "Roblox", category: "Joki", price: 10000, rating: 4.9, sold: 140, badge: "PROMO", estimation: "15 Menit", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Bantu amankan akun dari hack & phishing.", isJoki: true },
+            { id: 630, name: "Roblox Gift Card $100 (11000 Robux)", game: "Roblox", category: "Currency", price: 1520000, rating: 5.0, sold: 10, badge: "BARU", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNVqVOytwzupYZFY53cfpQ5dBciw488nGJbKhhb7rCXw&s=10", description: "Kode fisik/digital Gift Card Roblox nominal $100." }
+        ];
+
+        let state = {
+            currentPage: 'home',
+            selectedProduct: null,
+            cart: JSON.parse(localStorage.getItem('phantom_cart') || '[]'),
+            currentUser: JSON.parse(localStorage.getItem('phantom_user') || 'null'),
+            searchQuery: '',
+            filters: {
+                games: [],
+                categories: [],
+                maxPrice: 2000000
+            },
+            lastOrderDetails: null
+        };
+
+        // Initialize App
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartBadge();
+            updateAuthUI();
+            renderPage();
+        });
+
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
+        }
+
+        function saveCart() {
+            localStorage.setItem('phantom_cart', JSON.stringify(state.cart));
+            updateCartBadge();
+        }
+
+        function updateCartBadge() {
+            const badge = document.getElementById('cart-badge');
+            const totalItems = state.cart.reduce((sum, item) => sum + item.qty, 0);
+            if (totalItems > 0) {
+                badge.innerText = totalItems;
+                badge.style.display = 'inline-block';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        function showToast(message) {
+            document.getElementById('toast-message').innerText = message;
+            const toastEl = document.getElementById('cartToast');
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        }
+
+        function directChatAdmin() {
+            const text = encodeURIComponent("Halo Admin PHANTOM CHILLER, saya mau tanya-tanya / order custom joki & item Roblox.");
+            window.open(`https://wa.me/${ADMIN_WA}?text=${text}`, '_blank');
+        }
+
+        // --- AUTH SYSTEM LOGIC ---
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value.trim();
+            if (username) {
+                state.currentUser = { username: username };
+                localStorage.setItem('phantom_user', JSON.stringify(state.currentUser));
+                updateAuthUI();
+                showToast(`Selamat datang kembali, ${username}!`);
+                const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                if (modal) modal.hide();
+            }
+        }
+
+        function handleRegisterSubmit(e) {
+            e.preventDefault();
+            const username = document.getElementById('reg-username').value.trim();
+            if (username) {
+                state.currentUser = { username: username };
+                localStorage.setItem('phantom_user', JSON.stringify(state.currentUser));
+                updateAuthUI();
+                showToast(`Pendaftaran berhasil! Halo ${username}.`);
+                const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                if (modal) modal.hide();
+            }
+        }
+
+        function logoutUser() {
+            state.currentUser = null;
+            localStorage.removeItem('phantom_user');
+            updateAuthUI();
+            showToast('Anda telah keluar dari akun.');
+        }
+
+        function updateAuthUI() {
+            const container = document.getElementById('auth-btn-container');
+            if (!container) return;
+
+            if (state.currentUser) {
+                container.innerHTML = `
+                    <div class="dropdown">
+                        <button class="btn btn-phantom-outline dropdown-toggle fw-bold" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle text-danger me-1"></i> ${state.currentUser.username}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow-sm dropdown-menu-dark">
+                            <li><a class="dropdown-item small" href="#" onclick="navigateTo('cart'); return false;"><i class="bi bi-cart me-2"></i>Keranjang Belanja</a></li>
+                            <li><a class="dropdown-item small" href="#" data-bs-toggle="modal" data-bs-target="#trackOrderModal"><i class="bi bi-search me-2"></i>Cek Status Pesanan</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item small text-danger" href="#" onclick="logoutUser(); return false;"><i class="bi bi-box-arrow-right me-2"></i>Keluar (Logout)</a></li>
+                        </ul>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <button class="btn btn-phantom" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <i class="bi bi-box-arrow-in-right me-1"></i> Masuk
+                    </button>
+                `;
+            }
+        }
+
+        function navigateTo(page, param = null) {
+            state.currentPage = page;
+            if (param && page === 'product-detail') {
+                state.selectedProduct = PRODUCTS_DATA.find(p => p.id === param) || PRODUCTS_DATA[0];
+            }
+            
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            if (page === 'home') document.getElementById('nav-home')?.classList.add('active');
+            if (page === 'products') document.getElementById('nav-products')?.classList.add('active');
+            if (page === 'joki') document.getElementById('nav-joki')?.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            renderPage();
+        }
+
+        function handleGlobalSearch(query) {
+            state.searchQuery = query.toLowerCase();
+            if (state.currentPage !== 'products') {
+                navigateTo('products');
+            } else {
+                renderProductsPage();
+            }
+        }
+
+        function filterByGameNav(game) {
+            state.filters.games = [game];
+            navigateTo('products');
+        }
+
+        function addToCart(productId, qty = 1, jokiData = null) {
+            const prod = PRODUCTS_DATA.find(p => p.id === productId);
+            if (!prod) return;
+
+            const cartItem = { 
+                ...prod, 
+                qty: qty, 
+                jokiDetails: jokiData || null 
+            };
+
+            state.cart.push(cartItem);
+            saveCart();
+            showToast(`${prod.name} ditambahkan ke keranjang!`);
+        }
+
+        function updateCartQty(index, delta) {
+            if (state.cart[index]) {
+                state.cart[index].qty += delta;
+                if (state.cart[index].qty <= 0) {
+                    state.cart.splice(index, 1);
+                }
+                saveCart();
+                renderCartPage();
+            }
+        }
+
+        function removeFromCart(index) {
+            state.cart.splice(index, 1);
+            saveCart();
+            renderCartPage();
+        }
+
+        function renderPage() {
+            const container = document.getElementById('main-content');
+            
+            switch(state.currentPage) {
+                case 'home':
+                    container.innerHTML = getHomeHTML();
+                    initCountdown();
+                    break;
+                case 'products':
+                    renderProductsPage();
+                    break;
+                case 'joki':
+                    container.innerHTML = getJokiHTML();
+                    break;
+                case 'product-detail':
+                    container.innerHTML = getProductDetailHTML();
+                    break;
+                case 'cart':
+                    renderCartPage();
+                    break;
+                case 'checkout':
+                    container.innerHTML = getCheckoutHTML();
+                    break;
+                default:
+                    container.innerHTML = getHomeHTML();
+            }
+        }
+
+        function getHomeHTML() {
+            const bestSellers = PRODUCTS_DATA.filter(p => p.badge === 'TERLARIS' || p.badge === 'JOKI CEPAT').slice(0, 8);
+
+            return `
+                <!-- Hero Banner -->
+                <div class="hero-banner d-flex flex-column justify-content-center align-items-start">
+                    <span class="badge bg-danger mb-2 px-3 py-2 fw-semibold shadow-sm">SPECIAL JOKI & ITEM STORE</span>
+                    <h1 class="fw-extrabold display-5 text-light mb-2" style="font-weight: 900; letter-spacing: -1px;">Joki Level, Item & Top Up Roblox</h1>
+                    <p class="text-secondary lead fs-6 mb-4">Proses Kilat &bull; Anti-Banned 100% &bull; Garansi Uang Kembali. Dapatkan impianmu sekarang!</p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-phantom px-4 py-2.5 text-uppercase fw-bold" onclick="navigateTo('joki')">
+                            <i class="bi bi-controller me-1"></i> Order Joki Sekarang
+                        </button>
+                        <button class="btn btn-phantom-outline px-4 py-2.5 fw-bold" onclick="navigateTo('products')">
+                            Katalog Produk (${PRODUCTS_DATA.length} Item)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Category Pills -->
+                <div class="d-flex gap-2 overflow-x-auto pb-3 mb-4 text-nowrap">
+                    <button class="category-pill active" onclick="filterByPill('Semua', this)">Semua</button>
+                    <button class="category-pill" onclick="filterByPill('Blox Fruits', this)">Blox Fruits</button>
+                    <button class="category-pill" onclick="filterByPill('Fisch', this)">Fisch</button>
+                    <button class="category-pill" onclick="filterByPill('Grow a Garden', this)">Grow a Garden</button>
+                    <button class="category-pill" onclick="filterByPill('Blade Ball', this)">Blade Ball</button>
+                    <button class="category-pill" onclick="filterByPill('MM2', this)">MM2</button>
+                    <button class="category-pill" onclick="filterByPill('Roblox', this)">Roblox</button>
+                </div>
+
+                <!-- Banner Informasi Joki Amanah -->
+                <div class="bg-card border border-danger border-opacity-25 rounded-4 p-4 mb-5 shadow-sm">
+                    <div class="row align-items-center g-3">
+                        <div class="col-md-8">
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                                <span class="badge bg-danger">GARANSI AMANAH</span>
+                                <span class="text-secondary small fw-semibold">Dipercaya 5.000+ Gamers</span>
+                            </div>
+                            <h4 class="fw-bold text-light m-0">Ingin Joki Custom / Request Khusus?</h4>
+                            <p class="text-muted small m-0 mt-1">Kami menyediakan joki leveling, fruit awakening, raid fragment, dan grinding money dengan pengerjaan kilat 24 jam.</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <button class="btn btn-phantom" onclick="directChatAdmin()">
+                                <i class="bi bi-whatsapp me-1"></i> Chat Admin
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promo Section -->
+                <div id="promo-section" class="bg-card border rounded-4 p-4 mb-5 position-relative overflow-hidden shadow-sm">
+                    <div class="row align-items-center">
+                        <div class="col-md-7">
+                            <span class="text-danger fw-bold"><i class="bi bi-fire me-1"></i> PROMO FLASHSALE HARI INI</span>
+                            <h3 class="fw-bold mt-1 mb-2 text-light">Diskon Joki & Gamepass Roblox</h3>
+                            <p class="text-secondary small mb-3">Dapatkan slot joki express terbatas sebelum promo habis!</p>
+                            <div class="d-flex align-items-center gap-2 mb-3">
+                                <span class="text-muted small">Berakhir dalam:</span>
+                                <div class="bg-dark px-2 py-1 rounded border border-secondary fw-bold text-danger" id="timer-hours">04</div>:
+                                <div class="bg-dark px-2 py-1 rounded border border-secondary fw-bold text-danger" id="timer-minutes">20</div>:
+                                <div class="bg-dark px-2 py-1 rounded border border-secondary fw-bold text-danger" id="timer-seconds">15</div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 text-md-end">
+                            <button class="btn btn-phantom px-4 py-2" onclick="navigateTo('products')">Lihat Semua Promo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produk Terlaris & Rekomendasi Joki -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <h4 class="fw-bold m-0 text-light"><i class="bi bi-star-fill text-warning me-2"></i>Joki & Produk Terlaris</h4>
+                        <span class="text-muted small">Paling populer pilihan gamers minggu ini</span>
+                    </div>
+                    <button class="btn btn-phantom-outline btn-sm" onclick="navigateTo('products')">Lihat Semua</button>
+                </div>
+
+                <div class="row g-3 mb-5">
+                    ${bestSellers.map(p => getProductCardHTML(p)).join('')}
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="row g-3 my-4">
+                    <div class="col-md-3 col-6">
+                        <div class="bg-card border rounded-3 p-3 text-center h-100 shadow-sm">
+                            <i class="bi bi-shield-check display-6 text-danger mb-2"></i>
+                            <h6 class="fw-bold text-light mb-1">100% Anti-Banned</h6>
+                            <p class="text-secondary extra-small m-0">Proses pengerjaan manual tanpa script ilegal</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="bg-card border rounded-3 p-3 text-center h-100 shadow-sm">
+                            <i class="bi bi-lightning-charge-fill display-6 text-danger mb-2"></i>
+                            <h6 class="fw-bold text-light mb-1">Worker Cepat</h6>
+                            <p class="text-secondary extra-small m-0">Penjoki berpengalaman & online 24 jam</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="bg-card border rounded-3 p-3 text-center h-100 shadow-sm">
+                            <i class="bi bi-wallet2 display-6 text-danger mb-2"></i>
+                            <h6 class="fw-bold text-light mb-1">Harga Murah</h6>
+                            <p class="text-secondary extra-small m-0">Termurah untuk kaskus, FJB, & marketplace</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="bg-card border rounded-3 p-3 text-center h-100 shadow-sm">
+                            <i class="bi bi-headset display-6 text-danger mb-2"></i>
+                            <h6 class="fw-bold text-light mb-1">Update Progress</h6>
+                            <p class="text-secondary extra-small m-0">Bisa di-cek status pengerjaan via sistem</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getProductCardHTML(p) {
+            return `
+                <div class="col-lg-3 col-md-4 col-6">
+                    <div class="card-custom">
+                        <div class="card-img-wrapper">
+                            <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/1E293B/E2E8F0?text=Phantom+Chiller'">
+                            <span class="card-badge badge-${p.badge.toLowerCase().replace(/\s+/g, '')}">${p.badge}</span>
+                        </div>
+                        <div class="p-3 d-flex flex-column flex-grow-1">
+                            <span class="text-muted extra-small">${p.game}</span>
+                            <h6 class="fw-bold text-light mb-1 text-truncate" title="${p.name}">${p.name}</h6>
+                            <div class="d-flex align-items-center gap-1 mb-2 extra-small">
+                                <span class="text-warning"><i class="bi bi-star-fill"></i> ${p.rating}</span>
+                                <span class="text-muted">&bull; ${p.sold} terjual</span>
+                            </div>
+                            <div class="mt-auto">
+                                <div class="text-muted extra-small">${p.isJoki ? 'Biaya Joki' : 'Mulai dari'}</div>
+                                <div class="fw-bold text-danger fs-6 mb-2">${formatRupiah(p.price)}</div>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-phantom-outline btn-sm w-100" onclick="navigateTo('product-detail', ${p.id})">Detail</button>
+                                    <button class="btn btn-phantom btn-sm px-2" onclick="addToCart(${p.id})" title="Tambah Keranjang"><i class="bi bi-cart-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderProductsPage() {
+            let filtered = PRODUCTS_DATA.filter(p => {
+                const matchesSearch = p.name.toLowerCase().includes(state.searchQuery) || 
+                                      p.game.toLowerCase().includes(state.searchQuery) ||
+                                      p.category.toLowerCase().includes(state.searchQuery);
+                
+                const matchesGame = state.filters.games.length === 0 || state.filters.games.includes(p.game);
+                const matchesCat = state.filters.categories.length === 0 || state.filters.categories.includes(p.category);
+                const matchesPrice = p.price <= state.filters.maxPrice;
+
+                return matchesSearch && matchesGame && matchesCat && matchesPrice;
+            });
+
+            const html = `
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <h4 class="fw-bold m-0 text-light"><i class="bi bi-grid-fill text-danger me-2"></i>Katalog Produk & Joki</h4>
+                        <span class="text-muted small">Menampilkan ${filtered.length} dari ${PRODUCTS_DATA.length} total produk</span>
+                    </div>
+                    <button class="btn btn-phantom-outline d-md-none btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas">
+                        <i class="bi bi-funnel"></i> Filter
+                    </button>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Filter Sidebar Desktop -->
+                    <div class="col-md-3 d-none d-md-block">
+                        ${getFilterSidebarHTML()}
+                    </div>
+
+                    <!-- Filter Mobile -->
+                    <div class="offcanvas offcanvas-start bg-dark text-light" tabindex="-1" id="filterOffcanvas">
+                        <div class="offcanvas-header border-bottom">
+                            <h5 class="offcanvas-title fw-bold">Filter Katalog</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            ${getFilterSidebarHTML()}
+                        </div>
+                    </div>
+
+                    <!-- Grid Produk -->
+                    <div class="col-md-9">
+                        ${filtered.length === 0 ? `
+                            <div class="text-center py-5 bg-card border rounded-3 shadow-sm">
+                                <i class="bi bi-emoji-frown display-4 text-muted mb-2"></i>
+                                <h5 class="text-light">Produk tidak ditemukan.</h5>
+                                <p class="text-secondary small">Coba kata kunci lain atau reset filter Anda.</p>
+                            </div>
+                        ` : `
+                            <div class="row g-3">
+                                ${filtered.map(p => getProductCardHTML(p)).join('')}
+                            </div>
+                        `}
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('main-content').innerHTML = html;
+        }
+
+        function getFilterSidebarHTML() {
+            return `
+                <div class="filter-sidebar">
+                    <h6 class="fw-bold mb-3 border-bottom pb-2 text-light">Filter Games</h6>
+                    ${['Blox Fruits', 'Fisch', 'Grow a Garden', 'Blade Ball', 'MM2', 'Roblox'].map(game => `
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" value="${game}" id="filter-game-${game.replace(/\s+/g, '')}"
+                                ${state.filters.games.includes(game) ? 'checked' : ''} onchange="toggleGameFilter('${game}')">
+                            <label class="form-check-label text-secondary small" for="filter-game-${game.replace(/\s+/g, '')}">${game}</label>
+                        </div>
+                    `).join('')}
+
+                    <h6 class="fw-bold mt-4 mb-3 border-bottom pb-2 text-light">Kategori</h6>
+                    ${['Joki', 'Item', 'Gamepass', 'Currency', 'Fruit'].map(cat => `
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" value="${cat}" id="filter-cat-${cat}"
+                                ${state.filters.categories.includes(cat) ? 'checked' : ''} onchange="toggleCategoryFilter('${cat}')">
+                            <label class="form-check-label text-secondary small" for="filter-cat-${cat}">${cat}</label>
+                        </div>
+                    `).join('')}
+
+                    <h6 class="fw-bold mt-4 mb-2 border-bottom pb-2 text-light">Maksimal Harga</h6>
+                    <label class="text-danger fw-bold small mb-2" id="price-val">${formatRupiah(state.filters.maxPrice)}</label>
+                    <input type="range" class="form-range" min="5000" max="2000000" step="10000" value="${state.filters.maxPrice}" 
+                           oninput="updatePriceFilter(this.value)">
+                </div>
+            `;
+        }
+
+        function filterByPill(category, btn) {
+            document.querySelectorAll('.category-pill').forEach(el => el.classList.remove('active'));
+            btn.classList.add('active');
+
+            if (category === 'Semua') {
+                state.filters.games = [];
+            } else {
+                state.filters.games = [category];
+            }
+            navigateTo('products');
+        }
+
+        function toggleGameFilter(game) {
+            if (state.filters.games.includes(game)) {
+                state.filters.games = state.filters.games.filter(g => g !== game);
+            } else {
+                state.filters.games.push(game);
+            }
+            renderProductsPage();
+        }
+
+        function toggleCategoryFilter(cat) {
+            if (state.filters.categories.includes(cat)) {
+                state.filters.categories = state.filters.categories.filter(c => c !== cat);
+            } else {
+                state.filters.categories.push(cat);
+            }
+            renderProductsPage();
+        }
+
+        function updatePriceFilter(val) {
+            state.filters.maxPrice = parseInt(val);
+            document.getElementById('price-val').innerText = formatRupiah(val);
+            renderProductsPage();
+        }
+
+        function getJokiHTML() {
+            const jokiList = PRODUCTS_DATA.filter(p => p.category === 'Joki' || p.isJoki);
+
+            return `
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h4 class="fw-bold m-0 text-light"><i class="bi bi-controller text-danger me-2"></i>Layanan Joki Roblox</h4>
+                        <span class="text-muted small">Jasa joki profesional (${jokiList.length} Pilihan paket), pengerjaan express 24/7, dan amanah 100%.</span>
+                    </div>
+                    <button class="btn btn-phantom" onclick="directChatAdmin()">
+                        <i class="bi bi-whatsapp me-1"></i> Chat Admin
+                    </button>
+                </div>
+
+                <div class="row g-3">
+                    ${jokiList.map(j => `
+                        <div class="col-md-6 col-lg-4">
+                            <div class="bg-card border rounded-3 p-3 h-100 d-flex flex-column shadow-sm">
+                                <div class="d-flex gap-3 mb-3">
+                                    <img src="${j.image}" alt="${j.name}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;" onerror="this.src='https://placehold.co/600x400/1E293B/E2E8F0?text=Joki'">
+                                    <div>
+                                        <span class="badge bg-danger mb-1">${j.game}</span>
+                                        <h6 class="fw-bold text-light mb-1 text-truncate" style="max-width: 180px;">${j.name}</h6>
+                                        <div class="text-warning extra-small"><i class="bi bi-star-fill"></i> ${j.rating} &bull; <span class="text-muted">${j.sold} Terjual</span></div>
+                                    </div>
+                                </div>
+                                <p class="text-secondary small flex-grow-1">${j.description}</p>
+                                <div class="border-top pt-2 mt-auto d-flex justify-content-between align-items-center" style="border-color: var(--border-color) !important;">
+                                    <div>
+                                        <div class="text-muted extra-small">Estimasi: <span class="text-light fw-bold">${j.estimation || '1 Hari'}</span></div>
+                                        <div class="fw-bold text-danger">${formatRupiah(j.price)}</div>
+                                    </div>
+                                    <button class="btn btn-phantom btn-sm" onclick="navigateTo('product-detail', ${j.id})">Order Joki</button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function getProductDetailHTML() {
+            const p = state.selectedProduct || PRODUCTS_DATA[0];
+
+            return `
+                <nav aria-label="breadcrumb" class="mb-3">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" onclick="navigateTo('home'); return false;" class="text-secondary text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" onclick="navigateTo('products'); return false;" class="text-secondary text-decoration-none">Katalog</a></li>
+                        <li class="breadcrumb-item active text-light fw-semibold" aria-current="page">${p.name}</li>
+                    </ol>
+                </nav>
+
+                <div class="bg-card border rounded-4 p-4 shadow-sm">
+                    <div class="row g-4">
+                        <div class="col-md-5">
+                            <img src="${p.image}" alt="${p.name}" class="img-fluid rounded-3 border w-100" style="max-height: 350px; object-fit: cover;" onerror="this.src='https://placehold.co/600x400/1E293B/E2E8F0?text=Phantom+Chiller'">
+                        </div>
+                        <div class="col-md-7">
+                            <span class="badge bg-danger mb-2">${p.game}</span>
+                            <h3 class="fw-bold text-light mb-2">${p.name}</h3>
+                            
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="text-warning"><i class="bi bi-star-fill"></i> ${p.rating}</span>
+                                <span class="text-secondary">&bull;</span>
+                                <span class="text-secondary">${p.sold} Terjual</span>
+                                <span class="text-secondary">&bull;</span>
+                                <span class="text-success fw-semibold"><i class="bi bi-check-circle-fill"></i> ${p.isJoki ? 'Slot Joki Ready' : 'Stok Ready'}</span>
+                            </div>
+
+                            <h2 class="fw-extrabold text-danger mb-3">${formatRupiah(p.price)}</h2>
+                            <p class="text-secondary mb-4">${p.description}</p>
+
+                            <!-- Form Isian Khusus Layanan Joki -->
+                            ${p.isJoki ? `
+                                <div class="joki-calc-card mb-4">
+                                    <h6 class="fw-bold text-light mb-3"><i class="bi bi-shield-lock-fill text-danger me-1"></i> Data Akun untuk Joki (Aman & Rahasia)</h6>
+                                    <div class="row g-2 mb-2">
+                                        <div class="col-md-6">
+                                            <label class="form-label extra-small text-muted fw-semibold">Username Roblox</label>
+                                            <input type="text" id="joki-username" class="form-control form-control-sm" placeholder="Contoh: RobloxGamer123">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label extra-small text-muted fw-semibold">Password Roblox</label>
+                                            <input type="password" id="joki-password" class="form-control form-control-sm" placeholder="••••••••">
+                                        </div>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="form-label extra-small text-muted fw-semibold">Metode Login / Kode Backup 2FA (Jika ada)</label>
+                                        <input type="text" id="joki-2fa" class="form-control form-control-sm" placeholder="Masukkan 2FA code jika akun aktif verifikasi 2-langkah">
+                                    </div>
+                                    <div class="extra-small text-muted"><i class="bi bi-info-circle text-danger me-1"></i> Data Anda dijamin rahasia dan langsung di-clear setelah joki selesai.</div>
+                                </div>
+                            ` : ''}
+
+                            <div class="row g-2 mb-4 border-top border-bottom py-3" style="border-color: var(--border-color) !important;">
+                                <div class="col-6 col-sm-3">
+                                    <span class="text-muted d-block small">Kategori</span>
+                                    <span class="fw-bold text-light small">${p.category}</span>
+                                </div>
+                                <div class="col-6 col-sm-3">
+                                    <span class="text-muted d-block small">Estimasi</span>
+                                    <span class="fw-bold text-light small">${p.estimation || 'Instant - 30 Menit'}</span>
+                                </div>
+                                <div class="col-6 col-sm-3">
+                                    <span class="text-muted d-block small">Garansi</span>
+                                    <span class="fw-bold text-light small">100% Anti-Ban</span>
+                                </div>
+                                <div class="col-6 col-sm-3">
+                                    <span class="text-muted d-block small">Worker</span>
+                                    <span class="fw-bold text-light small">Phantom Team</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="input-group" style="width: 120px;">
+                                    <button class="btn btn-phantom-outline" onclick="changeDetailQty(-1)">-</button>
+                                    <input type="number" id="detail-qty" class="form-control text-center" value="1" readonly>
+                                    <button class="btn btn-phantom-outline" onclick="changeDetailQty(1)">+</button>
+                                </div>
+                                <button class="btn btn-phantom-outline flex-grow-1" onclick="addDetailToCart(${p.id})">
+                                    <i class="bi bi-cart-plus me-1"></i> Tambah Keranjang
+                                </button>
+                                <button class="btn btn-phantom flex-grow-1" onclick="buyNow(${p.id})">
+                                    Beli Sekarang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function changeDetailQty(delta) {
+            const input = document.getElementById('detail-qty');
+            let val = parseInt(input.value) + delta;
+            if (val < 1) val = 1;
+            input.value = val;
+        }
+
+        function getJokiInputData() {
+            const u = document.getElementById('joki-username')?.value || '';
+            const p = document.getElementById('joki-password')?.value || '';
+            const t = document.getElementById('joki-2fa')?.value || '';
+            if (!u && !p) return null;
+            return { username: u, password: p, tfa: t };
+        }
+
+        function addDetailToCart(productId) {
+            const qty = parseInt(document.getElementById('detail-qty').value);
+            const jokiData = getJokiInputData();
+            addToCart(productId, qty, jokiData);
+        }
+
+        function buyNow(productId) {
+            const qty = parseInt(document.getElementById('detail-qty').value);
+            const jokiData = getJokiInputData();
+            addToCart(productId, qty, jokiData);
+            navigateTo('checkout');
+        }
+
+        function renderCartPage() {
+            const container = document.getElementById('main-content');
+
+            if (state.cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-5 bg-card border rounded-4 shadow-sm">
+                        <i class="bi bi-cart-x display-1 text-muted mb-3"></i>
+                        <h4 class="fw-bold text-light">Keranjang Belanja Kosong</h4>
+                        <p class="text-secondary small mb-4">Anda belum menambahkan produk atau jasa joki ke keranjang.</p>
+                        <button class="btn btn-phantom px-4 py-2" onclick="navigateTo('products')">Mulai Belanja</button>
+                    </div>
+                `;
+                return;
+            }
+
+            const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const adminFee = 2000;
+            const total = subtotal + adminFee;
+
+            container.innerHTML = `
+                <h4 class="fw-bold mb-4 text-light"><i class="bi bi-cart3 text-danger me-2"></i>Keranjang Belanja</h4>
+
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="d-flex flex-column gap-3">
+                            ${state.cart.map((item, index) => `
+                                <div class="bg-card border rounded-3 p-3 d-flex align-items-center gap-3 shadow-sm">
+                                    <img src="${item.image}" alt="${item.name}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 10px;" onerror="this.src='https://placehold.co/600x400/1E293B/E2E8F0?text=Item'">
+                                    <div class="flex-grow-1">
+                                        <span class="badge bg-secondary extra-small mb-1">${item.game}</span>
+                                        <h6 class="fw-bold text-light mb-1">${item.name}</h6>${item.jokiDetails ? `<div class="extra-small text-danger"><i class="bi bi-shield-lock me-1"></i> Data Joki: ${item.jokiDetails.username || 'Username Kosong'}</div>` : ''}
+                                        <div class="text-danger fw-bold">${formatRupiah(item.price)}</div>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <button class="btn btn-phantom-outline btn-sm px-2" onclick="updateCartQty(${index}, -1)">-</button>
+                                        <span class="fw-bold px-2 text-light">${item.qty}</span>
+                                        <button class="btn btn-phantom-outline btn-sm px-2" onclick="updateCartQty(${index}, 1)">+</button>
+                                    </div>
+                                    <button class="btn btn-link text-danger fs-5 p-0 border-0 ms-2" onclick="removeFromCart(${index})">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="bg-card border rounded-3 p-4 shadow-sm">
+                            <h5 class="fw-bold mb-3 border-bottom pb-2 text-light">Ringkasan Pesanan</h5>
+                            <div class="d-flex justify-content-between mb-2 text-secondary small">
+                                <span>Subtotal Produk</span>
+                                <span>${formatRupiah(subtotal)}</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-3 text-secondary small">
+                                <span>Biaya Layanan Admin</span>
+                                <span>${formatRupiah(adminFee)}</span>
+                            </div>
+                            <hr style="border-color: var(--border-color);">
+                            <div class="d-flex justify-content-between mb-4">
+                                <span class="fw-bold text-light">Total Pembayaran</span>
+                                <span class="fw-bold text-danger fs-5">${formatRupiah(total)}</span>
+                            </div>
+                            <button class="btn btn-phantom w-100 py-2 fw-bold text-uppercase" onclick="navigateTo('checkout')">
+                                Lanjut ke Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getCheckoutHTML() {
+            const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const adminFee = 2000;
+            const total = subtotal + adminFee;
+
+            return `
+                <h4 class="fw-bold mb-4 text-light"><i class="bi bi-credit-card-fill text-danger me-2"></i>Checkout Pesanan</h4>
+
+                <form onsubmit="handleCheckoutSubmit(event, ${total})">
+                    <div class="row g-4">
+                        <div class="col-lg-7">
+                            <div class="bg-card border rounded-3 p-4 mb-4 shadow-sm">
+                                <h5 class="fw-bold mb-3 border-bottom pb-2 text-light">Informasi Pembeli</h5>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Nama Lengkap</label>
+                                    <input type="text" id="co-name" class="form-control" required value="${state.currentUser ? state.currentUser.username : ''}" placeholder="Masukkan nama Anda">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Username Roblox / ID Game</label>
+                                    <input type="text" id="co-roblox" class="form-control" required placeholder="Contoh: PhantomPlayer12">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Nomor WhatsApp (Aktif)</label>
+                                    <input type="tel" id="co-wa" class="form-control" required placeholder="08xxxxxxxxxx">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label text-muted small fw-semibold">Catatan / Detail Akun Joki Tambahan (Opsional)</label>
+                                    <textarea id="co-note" class="form-control" rows="2" placeholder="Catatan khusus penjoki (cth: jangan pakai fruit X, simpan Beli, dll)..."></textarea>
+                                </div>
+                            </div>
+
+                            <div class="bg-card border rounded-3 p-4 shadow-sm">
+                                <h5 class="fw-bold mb-3 border-bottom pb-2 text-light">Metode Pembayaran</h5>
+                                <div class="d-flex flex-column gap-2" id="payment-methods">
+                                    <label class="bg-dark border border-secondary rounded p-3 d-flex align-items-center justify-content-between cursor-pointer">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="payment" value="QRIS" checked class="form-check-input">
+                                            <span class="fw-bold text-light ms-2">QRIS All Payment (Instant)</span>
+                                        </div>
+                                        <span class="badge bg-danger">Bebas Biaya</span>
+                                    </label>
+                                    <label class="bg-dark border border-secondary rounded p-3 d-flex align-items-center justify-content-between cursor-pointer">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="payment" value="DANA" class="form-check-input">
+                                            <span class="fw-bold text-light ms-2">DANA</span>
+                                        </div>
+                                    </label>
+                                    <label class="bg-dark border border-secondary rounded p-3 d-flex align-items-center justify-content-between cursor-pointer">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="payment" value="GoPay" class="form-check-input">
+                                            <span class="fw-bold text-light ms-2">GoPay / OVO</span>
+                                        </div>
+                                    </label>
+                                    <label class="bg-dark border border-secondary rounded p-3 d-flex align-items-center justify-content-between cursor-pointer">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <input type="radio" name="payment" value="Transfer Bank BCA" class="form-check-input">
+                                            <span class="fw-bold text-light ms-2">Transfer Bank BCA / Mandiri</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <div class="bg-card border rounded-3 p-4 sticky-top shadow-sm" style="top: 90px;">
+                                <h5 class="fw-bold mb-3 border-bottom pb-2 text-light">Detail Tagihan</h5>
+                                <div class="d-flex flex-column gap-2 mb-3" style="max-height: 200px; overflow-y: auto;">
+                                    ${state.cart.map(i => `
+                                        <div class="d-flex justify-content-between text-secondary small">
+                                            <span>${i.name} (x${i.qty})</span>
+                                            <span class="text-light fw-semibold">${formatRupiah(i.price * i.qty)}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <hr style="border-color: var(--border-color);">
+                                <div class="d-flex justify-content-between mb-2 text-secondary small">
+                                    <span>Subtotal</span>
+                                    <span>${formatRupiah(subtotal)}</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3 text-secondary small">
+                                    <span>Biaya Layanan Admin</span>
+                                    <span>${formatRupiah(adminFee)}</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-4">
+                                    <span class="fw-bold text-light">Total Pembayaran</span>
+                                    <span class="fw-bold text-danger fs-4">${formatRupiah(total)}</span>
+                                </div>
+                                <button type="submit" class="btn btn-phantom w-100 py-3 fw-bold text-uppercase">
+                                    Buat Pesanan Sekarang
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            `;
+        }
+
+        function handleCheckoutSubmit(e, total) {
+            e.preventDefault();
+            const orderId = 'PC-' + Math.floor(100000 + Math.random() * 900000);
+            const selectedPayment = document.querySelector('input[name="payment"]:checked').value;
+            const buyerName = document.getElementById('co-name').value;
+            const buyerRoblox = document.getElementById('co-roblox').value;
+            const buyerWA = document.getElementById('co-wa').value;
+            const buyerNote = document.getElementById('co-note').value;
+
+            state.lastOrderDetails = {
+                orderId,
+                payment: selectedPayment,
+                total: formatRupiah(total),
+                buyerName,
+                buyerRoblox,
+                buyerWA,
+                buyerNote,
+                items: [...state.cart]
+            };
+
+            document.getElementById('success-order-id').innerText = orderId;
+            document.getElementById('success-payment').innerText = selectedPayment;
+            document.getElementById('success-total').innerText = formatRupiah(total);
+
+            // Clear Cart
+            state.cart = [];
+            saveCart();
+
+            const modal = new bootstrap.Modal(document.getElementById('orderSuccessModal'));
+            modal.show();
+        }
+
+        function sendWAConfirmation() {
+            if (!state.lastOrderDetails) return;
+            const o = state.lastOrderDetails;
+            
+            let itemText = o.items.map(i => `- ${i.name} (${i.qty}x)`).join('%0A');
+            let text = `Halo Admin PHANTOM CHILLER, saya mau konfirmasi pesanan:%0A%0A` +
+                       `*Kode Order:* ${o.orderId}%0A` +
+                       `*Nama:* ${o.buyerName}%0A` +
+                       `*Username Roblox:* ${o.buyerRoblox}%0A` +
+                       `*Detail Pesanan:*%0A${itemText}%0A` +
+                       `*Total Tagihan:* ${o.total}%0A` +
+                       `*Metode Bayar:* ${o.payment}%0A` +
+                       `*Catatan:* ${o.buyerNote || '-'}`;
+
+            window.open(`https://wa.me/${ADMIN_WA}?text=${text}`, '_blank');
+        }
+
+        function trackJokiStatus() {
+            const orderId = document.getElementById('track-order-id').value.trim();
+            const resultDiv = document.getElementById('track-result');
+            
+            if (!orderId) return;
+
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `
+                <div class="bg-dark border rounded-3 p-3">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="fw-bold text-light">${orderId}</span>
+                        <span class="badge bg-warning text-dark">DALAM PROSES WORKER</span>
+                    </div>
+                    <div class="progress mb-2" style="height: 10px; background-color: #1A1A1A;">
+                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: 65%;"></div>
+                    </div>
+                    <p class="extra-small text-muted mb-0"><i class="bi bi-clock me-1"></i> Estimasi Selesai: 2-4 Jam Lagi. Tim Worker sedang mengerjakan akun Anda secara aman.</p>
+                </div>
+            `;
+        }
+
+        function initCountdown() {
+            let hours = 4, minutes = 20, seconds = 15;
+            setInterval(() => {
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                    }
+                }
+                const hEl = document.getElementById('timer-hours');
+                const mEl = document.getElementById('timer-minutes');
+                const sEl = document.getElementById('timer-seconds');
+
+                if (hEl) hEl.innerText = String(hours).padStart(2, '0');
+                if (mEl) mEl.innerText = String(minutes).padStart(2, '0');
+                if (sEl) sEl.innerText = String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
